@@ -1,0 +1,19 @@
+<p>Welcome to TESTER!</p>
+<p>Please select a project below, or <a href="#/newproject">create a new one</a></p>
+<div>
+    Search: <input type="text" ng-model="search.name"/>
+</div>
+<br/>
+<div ng-repeat="project in projects | filter: search.name">
+    {{ project.name }} - <a href="#/project/{{ project.name }}">{{ project.version }}</a>
+</div>
+    
+<p>Create a new Project</p>
+<form name="new.project" ng-submit="addProject()">
+Name:<input name="nameInput" type="text" ng-model="newProject.name" required/>
+    <span class="error" ng-show="new.project.nameInput.$error.required">Required Field</span><br>
+Description:<input type="text" ng-model="newProject.description" /><br/>
+Version:<input name="versionInput" type="text" ng-model="newProject.version" required />
+    <span class="error" ng-show="new.project.versionInput.$error.required">Required Field</span><br>
+<input type="submit" id="submit" value="Submit" />
+</form>

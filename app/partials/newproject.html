@@ -1,0 +1,9 @@
+<p>Create a new Project</p>
+<form name="new.project" ng-submit="addProject()" ng-controller="HomeController">
+Name:<input name="nameInput" type="text" ng-model="newProject.name" required/>
+    <span class="error" ng-show="new.project.nameInput.$error.required">Required Field</span><br>
+Description:<input type="text" ng-model="newProject.description" /><br/>
+Version:<input name="versionInput" type="text" ng-model="newProject.version" required />
+    <span class="error" ng-show="new.project.versionInput.$error.required">Required Field</span><br>
+<input type="submit" id="submit" value="Submit" />
+</form>
